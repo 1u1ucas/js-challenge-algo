@@ -13,9 +13,17 @@ const products = [
     { name: 'Produit A', price: 100 },
     { name: 'Produit B', price: 300 },
     { name: 'Produit C', price: 200 },
-    { name: 'Produit D', price: 400 }
+    { name: 'Produit D', price: 400 },
   ];
-  
+
+ const mostExpensiveProduct = products.reduce(
+  (callBack, nextValue) => {if(callBack.price > nextValue.price) {
+    return callBack
+  } else return nextValue} 
+
+ )
+
+
 // Trouver le produit le plus cher avec reduce  
 console.log(`Le produit le plus cher est : ${mostExpensiveProduct.name} au prix de ${mostExpensiveProduct.price} €`);
   

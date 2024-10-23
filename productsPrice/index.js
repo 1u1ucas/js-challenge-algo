@@ -15,12 +15,28 @@ const products = [
     { name: 'Produit C', price: 200 },
     { name: 'Produit Promo D', price: 250 }
   ];
-  
+
+
+  const copyProducts =  [ ...products];
+
 // Appliquer une réduction de 20 % sur les produits en promotion
+
+products.reduce(
+  (callBack, CurrentValue) => {
+    const {name} = CurrentValue;
+
+    if(name.includes('Promo')) {
+      
+      CurrentValue.price = CurrentValue.price * 0.80
+    }
+  },
+  
+)
+
 
   
 console.log('Produits originaux :', products); // Liste originale
-console.log('Produits mis à jour :', updatedProducts); // Liste avec réduction
+console.log('Produits mis à jour :', copyProducts); // Liste avec réduction
   
 
 // Résultat attendu :
