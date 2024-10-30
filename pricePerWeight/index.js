@@ -17,11 +17,20 @@ const products = [
 ];
   
 // Ajouter le prix par kilo à chaque produit
+const productsWithPricePerKg = products.map(product => {
+    return {
+        ...product,
+        pricePerKg: (product.price / product.weight).toFixed(2)
+    };
+});
 
 // Trier les produits par prix au kilo
-  
-// Afficher les produits avec leur prix par kilo
+productsWithPricePerKg.sort((a, b) => b.pricePerKg - a.pricePerKg);  
 
+// Afficher les produits avec leur prix par kilo
+productsWithPricePerKg.forEach(product => {
+    console.log(`${product.name}: Prix total = ${product.price} €, Poids = ${product.weight} kg, Prix par kilo = ${product.pricePerKg} €/kg`);
+});
 
 // Résultat attendu :
 // Riz: Prix total = 15 €, Poids = 5 kg, Prix par kilo = 3.00 €/kg
