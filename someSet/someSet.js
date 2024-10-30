@@ -2,6 +2,15 @@ function sumOfTwoDigitsInTheTable(arr, target) {
     /* TODO */
     // fetch into arr
         // fetch into arr
+        const seen = new Set();
+        for (let num of arr) {
+            const complement = target - num;
+            if (seen.has(complement)) {
+                return true;
+            }
+            seen.add(num);
+        }
+        return false;
 }
 
 const result1 = sumOfTwoDigitsInTheTable([1,8,3,6,9,2,5,12], 9) // true
